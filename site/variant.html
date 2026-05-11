@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вариативное задание | NeoPixel</title>
+    <meta name="description" content="Описание вариативного задания: учебный web server на Python.">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="index.html"><span class="brand-mark">NP</span><span>NeoPixel</span></a>
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Домой</a></li>
+          <li><a href="about.html">О проекте</a></li>
+          <li><a href="participants.html">Участники</a></li>
+          <li><a href="journal.html">Журнал</a></li>
+          <li><a href="resources.html">Ресурсы</a></li>
+          <li><a href="variant.html" aria-current="page">Вариативное задание</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="section-inner">
+          <p class="eyebrow">Вариативная часть практики</p>
+          <h1>Python: Simple Web Server</h1>
+          <p class="lead">Вариативное задание посвящено созданию собственного учебного HTTP-сервера на Python без Flask, Django, FastAPI и других веб-фреймворков. Работа демонстрирует базовую механику веба: TCP-соединение, HTTP-запрос, маршрутизацию, отдачу файлов и формирование ответа.</p>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Постановка задачи</p>
+            <h2>Что было реализовано</h2>
+            <p class="lead">Задача состояла в практическом воспроизведении темы `Python: A Simple Web Server` из направления `Build your own Web Server`. Вместо использования готового фреймворка сервер был построен на стандартном модуле `socket`, чтобы явно показать сетевой уровень и структуру HTTP-сообщений.</p>
+          </div>
+          <div class="grid three">
+            <div class="card">
+              <h3>Сетевой уровень</h3>
+              <p>Сервер открывает TCP-сокет, привязывается к адресу и порту, принимает клиентские подключения и обрабатывает их в отдельных потоках. Такой подход делает видимой нижнюю механику, которая обычно скрыта внутри веб-фреймворков.</p>
+            </div>
+            <div class="card">
+              <h3>HTTP-логика</h3>
+              <p>Реализация разбирает стартовую строку запроса, заголовки, путь, query-параметры и формирует корректный HTTP-ответ со статусом, заголовками, типом содержимого и длиной тела.</p>
+            </div>
+            <div class="card">
+              <h3>Статика и API</h3>
+              <p>Сервер отдает HTML, CSS и текстовые файлы из `src/public`, показывает листинг директорий без `index.html`, а также предоставляет JSON-маршруты `/api/time` и `/api/echo` как творческое расширение.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="grid two">
+            <div>
+              <p class="eyebrow">Архитектура</p>
+              <h2>Как устроен учебный сервер</h2>
+              <p class="lead">В основе лежит класс `SimpleWebServer`, который управляет жизненным циклом сервера: открывает порт, принимает соединение, читает запрос, передает его на разбор, выбирает обработчик и отправляет ответ клиенту.</p>
+              <p>Для структурирования кода используются объекты `HttpRequest` и `HttpResponse`. Это позволяет отделить представление запроса и ответа от низкоуровневой работы с байтами. В результате код становится ближе к реальной архитектуре веб-серверов, но остается достаточно компактным для учебного анализа.</p>
+            </div>
+            <figure class="visual-panel">
+              <img src="assets/web-server-diagram.svg" alt="Схема работы учебного HTTP-сервера">
+              <figcaption>Общая схема: клиент отправляет HTTP-запрос, Python-сервер разбирает его, выбирает обработчик и возвращает HTML, CSS, JSON или страницу ошибки.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Функциональность</p>
+            <h2>Ключевые возможности</h2>
+          </div>
+          <div class="grid three">
+            <div class="card">
+              <h3>GET и HEAD</h3>
+              <p>Сервер поддерживает два метода: `GET` для получения ресурса и `HEAD` для получения заголовков без тела ответа. Остальные методы получают ответ `405 Method Not Allowed`.</p>
+            </div>
+            <div class="card">
+              <h3>Статические файлы</h3>
+              <p>Запросы к обычным путям обрабатываются как обращение к файлам внутри `src/public`. Для директорий автоматически отдается `index.html`, а при его отсутствии генерируется HTML-листинг.</p>
+            </div>
+            <div class="card">
+              <h3>Безопасность пути</h3>
+              <p>Реализована защита от path traversal: сервер нормализует путь и не позволяет получить файлы за пределами публичной директории. Опасные запросы получают ответ `403 Forbidden`.</p>
+            </div>
+            <div class="card">
+              <h3>Страницы ошибок</h3>
+              <p>Ошибки `400`, `403`, `404`, `405` и внутренние сбои преобразуются в читаемые HTML-страницы. Это делает поведение сервера понятным как для браузера, так и для ручной проверки через `curl`.</p>
+            </div>
+            <div class="card">
+              <h3>JSON API</h3>
+              <p>Маршрут `/api/time` возвращает текущее UTC-время, а `/api/echo` отражает метод, путь, заголовки и query-параметры запроса. Это показывает переход от статической отдачи файлов к динамической генерации данных.</p>
+            </div>
+            <div class="card">
+              <h3>Документированная проверка</h3>
+              <p>В документации описаны команды запуска, сценарии проверки и ожидаемые HTTP-статусы для главной страницы, API, отсутствующего файла и попытки выхода за пределы `public`.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="grid two">
+            <div class="card">
+              <h3>Структура реализации</h3>
+              <p>Основной код расположен в `src/simple_web_server.py`. Демонстрационные файлы находятся в `src/public`: главная страница, страница описания, CSS и тестовая директория `notes` для проверки автоматического листинга.</p>
+              <pre><code>src/
+  simple_web_server.py
+  public/
+    index.html
+    about.html
+    styles.css
+    notes/readme.txt</code></pre>
+            </div>
+            <div class="card">
+              <h3>Запуск</h3>
+              <p>Для запуска нужен только Python 3. После старта сервер доступен в браузере по локальному адресу, а отдельные маршруты можно дополнительно проверить через `curl`.</p>
+              <pre><code>python3 src/simple_web_server.py \
+  --host 127.0.0.1 \
+  --port 8080 \
+  --root src/public</code></pre>
+              <p>После запуска можно открыть `http://127.0.0.1:8080/`.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="prose">
+            <p class="eyebrow">Итог</p>
+            <h2>Учебная ценность задания</h2>
+            <p>Вариативное задание показывает, что веб-сервер не является магическим компонентом фреймворка. В минимальном виде это программа, которая принимает TCP-подключение, читает байты, интерпретирует их как HTTP-запрос, выбирает нужный обработчик и отправляет обратно строго оформленный HTTP-ответ.</p>
+            <p>Именно поэтому работа имеет методическую ценность: она раскрывает фундаментальные принципы, на которых строятся более сложные веб-приложения. После такой реализации проще понимать, что делают промышленные серверы, маршрутизаторы, middleware, API-слои и механизмы отдачи статических файлов.</p>
+            <div class="button-row">
+              <a class="button primary" href="https://github.com/dehorik/practice-2026/blob/main/docs/variant_task.md" target="_blank" rel="noreferrer">Открыть подробную документацию</a>
+              <a class="button" href="https://github.com/dehorik/practice-2026/blob/main/docs/variant_journal.md" target="_blank" rel="noreferrer">Открыть журнал вариативной части</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>NeoPixel · вариативное задание</p>
+        <div class="footer-links">
+          <a href="journal.html">Журнал</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>

@@ -277,6 +277,30 @@ span {
   color: var(--muted);
 }
 
+pre {
+  overflow-x: auto;
+  margin: 18px 0 0;
+  padding: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #e5edf4;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+p code,
+li code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #eef2f7;
+  color: #17202a;
+}
+
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

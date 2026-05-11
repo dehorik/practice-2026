@@ -12,7 +12,8 @@ export default defineConfig({
         about: resolve(__dirname, "about.html"),
         participants: resolve(__dirname, "participants.html"),
         journal: resolve(__dirname, "journal.html"),
-        resources: resolve(__dirname, "resources.html")
+        resources: resolve(__dirname, "resources.html"),
+        variant: resolve(__dirname, "variant.html")
       }
     }
   }
