@@ -10,3 +10,8 @@
 **/.ruff_cache
 **/.venv
 **/catboost_info/
+
+# js
+node_modules/
+dist/
+.vite/

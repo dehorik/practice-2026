@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">NeoPixel photopolymer printer visual</title>
+  <desc id="desc">A technical visualization of a compact resin 3D printer with a Z axis, UV exposure area, and display module.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.52" stop-color="#12323a"/>
+      <stop offset="1" stop-color="#1d2633"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#19b4a6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0.72"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <g opacity="0.24">
+    <path d="M120 780H1480M120 680H1480M120 580H1480M120 480H1480M120 380H1480M120 280H1480M120 180H1480" stroke="#dbeafe"/>
+    <path d="M220 90V860M420 90V860M620 90V860M820 90V860M1020 90V860M1220 90V860M1420 90V860" stroke="#dbeafe"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="520" y="120" width="560" height="710" rx="18" fill="#d9e2ec"/>
+    <rect x="552" y="166" width="496" height="550" rx="12" fill="#111827"/>
+    <rect x="602" y="218" width="396" height="398" rx="10" fill="#182532"/>
+    <rect x="640" y="238" width="40" height="338" rx="8" fill="#93a4b8"/>
+    <rect x="920" y="238" width="40" height="338" rx="8" fill="#93a4b8"/>
+    <rect x="688" y="310" width="224" height="34" rx="6" fill="#e2e8f0"/>
+    <rect x="720" y="344" width="160" height="118" rx="8" fill="#64748b"/>
+    <rect x="660" y="585" width="280" height="26" rx="5" fill="#cbd5e1"/>
+    <rect x="612" y="644" width="376" height="52" rx="8" fill="url(#glass)"/>
+    <rect x="568" y="736" width="464" height="62" rx="10" fill="#334155"/>
+    <circle cx="628" cy="767" r="13" fill="#22c55e"/>
+    <circle cx="670" cy="767" r="13" fill="#f59e0b"/>
+    <rect x="725" y="752" width="230" height="30" rx="6" fill="#0f172a"/>
+  </g>
+  <g opacity="0.9">
+    <path d="M1080 620C1208 562 1288 472 1320 350" fill="none" stroke="#a7f3d0" stroke-width="6"/>
+    <path d="M1323 326l18 45-47-11z" fill="#a7f3d0"/>
+    <path d="M510 680C380 642 282 568 218 458" fill="none" stroke="#93c5fd" stroke-width="6"/>
+    <path d="M205 433l39 31-49 12z" fill="#93c5fd"/>
+  </g>
+</svg>
+

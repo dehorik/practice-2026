@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Animated layer cycle</title>
+  <desc id="desc">Animated media simulation of a build platform moving during a photopolymer layer cycle.</desc>
+  <rect width="960" height="540" fill="#0f172a"/>
+  <g opacity="0.28" stroke="#93c5fd">
+    <path d="M0 450H960M0 390H960M0 330H960M0 270H960M0 210H960M0 150H960M0 90H960"/>
+    <path d="M120 0V540M240 0V540M360 0V540M480 0V540M600 0V540M720 0V540M840 0V540"/>
+  </g>
+  <rect x="245" y="92" width="470" height="365" rx="14" fill="#111827" stroke="#475569" stroke-width="4"/>
+  <rect x="300" y="126" width="34" height="270" rx="8" fill="#94a3b8"/>
+  <rect x="626" y="126" width="34" height="270" rx="8" fill="#94a3b8"/>
+  <rect x="362" y="342" width="236" height="34" rx="6" fill="#cbd5e1">
+    <animate attributeName="y" values="342;255;312;342" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="395" y="376" width="170" height="54" rx="8" fill="#64748b">
+    <animate attributeName="y" values="376;289;346;376" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="330" y="430" width="300" height="24" rx="5" fill="#14b8a6"/>
+  <rect x="330" y="430" width="300" height="24" rx="5" fill="#8b5cf6" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0.85;0" keyTimes="0;0.45;0.65;0.78;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="480" y="60" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#e5edf4">Упрощенная последовательность печати</text>
+  <text x="480" y="500" text-anchor="middle" font-family="Arial" font-size="18" fill="#cbd5e1">подъем платформы - возврат - засветка</text>
+</svg>

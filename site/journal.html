@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Журнал | NeoPixel</title>
+    <meta name="description" content="Журнал прогресса проекта NeoPixel.">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="index.html"><span class="brand-mark">NP</span><span>NeoPixel</span></a>
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Домой</a></li>
+          <li><a href="about.html">О проекте</a></li>
+          <li><a href="participants.html">Участники</a></li>
+          <li><a href="journal.html" aria-current="page">Журнал</a></li>
+          <li><a href="resources.html">Ресурсы</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="section-inner">
+          <p class="eyebrow">Прогресс работы</p>
+          <h1>Журнал</h1>
+          <p class="lead">Журнал фиксирует основные этапы движения проекта: от постановки аппаратной задачи и первичной документации до формирования программной логики управления Z-осью и планирования следующих модулей.</p>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="timeline">
+            <article class="post">
+              <time datetime="2026-03-12">Этап 1 · 12 марта 2026</time>
+              <div>
+                <h2>Проанализированы требования к фотополимерному принтеру</h2>
+                <p>На начальном этапе была сформирована предметная область проекта: рассмотрены особенности малогабаритной фотополимерной печати, роль вертикального позиционирования платформы, требования к UV-засветке и необходимость стабильной повторяемости технологических операций.</p>
+                <p>Эта работа задала методическую основу дальнейшей разработки. Проект был рассмотрен не как набор отдельных деталей, а как киберфизическая система, в которой программные команды, электрические сигналы, механическое перемещение и поведение фотополимера должны быть согласованы между собой.</p>
+                <div class="tag-list">
+                  <span class="tag">анализ требований</span>
+                  <span class="tag">SLA/MSLA</span>
+                  <span class="tag">постановка задачи</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="post">
+              <time datetime="2026-03-26">Этап 2 · 26 марта 2026</time>
+              <div>
+                <h2>Сформирована аппаратная рамка проекта</h2>
+                <p>После анализа требований была выполнена укрупненная спецификация аппаратной части малого фотополимерного принтера. В качестве управляющего ядра выбран ESP32-S3, для вертикального перемещения платформы рассматривается шаговый двигатель NEMA17 с драйвером A4988, а для экспозиционного контура выделена UV-матрица с коммутацией через реле.</p>
+                <p>Особое внимание было уделено системной совместимости компонентов: уровню логических сигналов, питанию 12 В, необходимости общего GND, роли понижающего преобразователя и потенциальным рискам при подключении силовой нагрузки.</p>
+                <div class="tag-list">
+                  <span class="tag">аппаратная архитектура</span>
+                  <span class="tag">ESP32-S3</span>
+                  <span class="tag">питание</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="post">
+              <time datetime="2026-04-03">Этап 3 · 3 апреля 2026</time>
+              <div>
+                <h2>Реализовано базовое управление осью Z</h2>
+                <p>В программной части проекта оформлен модуль, отвечающий за управление шаговым двигателем через драйвер A4988. Реализация включает настройку GPIO, сигналы STEP, DIR и EN, генерацию импульсов, проверку концевого выключателя и вычисление текущего положения в шагах и миллиметрах.</p>
+                <p>Эта задача является центральной для текущей стадии, поскольку ось Z задает геометрическую дисциплину печати: подъем платформы, возврат к расчетной позиции, отсутствие накопленной ошибки и возможность дальнейшего построения полной последовательности печатных операций.</p>
+                <div class="tag-list">
+                  <span class="tag">ось Z</span>
+                  <span class="tag">A4988</span>
+                  <span class="tag">NEMA17</span>
+                  <span class="tag">homing</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="grid two">
+            <figure class="visual-panel">
+              <img src="assets/process-diagram.svg" alt="Схема прогресса по последовательности печати">
+              <figcaption>Обобщенная схема того, как движение оси Z связано с будущей экспозицией слоя.</figcaption>
+            </figure>
+            <div>
+              <p class="eyebrow">Следующие шаги</p>
+              <h2>Что логично делать дальше</h2>
+              <p class="lead">После базовой проверки оси Z проект должен перейти к интеграции UV-управления, ограничений безопасности и минимального сценария печати. Только после этого имеет смысл усложнять интерфейс и добавлять обработку файлов слоев.</p>
+              <div class="button-row">
+                <a class="button primary" href="about.html">Вернуться к описанию</a>
+                <a class="button" href="resources.html">Изучить источники</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>NeoPixel · журнал проекта</p>
+        <div class="footer-links">
+          <a href="participants.html">Участники</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ресурсы | NeoPixel</title>
+    <meta name="description" content="Полезные материалы и ссылки для проекта NeoPixel.">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="index.html"><span class="brand-mark">NP</span><span>NeoPixel</span></a>
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Домой</a></li>
+          <li><a href="about.html">О проекте</a></li>
+          <li><a href="participants.html">Участники</a></li>
+          <li><a href="journal.html">Журнал</a></li>
+          <li><a href="resources.html" aria-current="page">Ресурсы</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="section-inner">
+          <p class="eyebrow">Материалы и ссылки</p>
+          <h1>Ресурсы</h1>
+          <p class="lead">Подборка источников, которые помогают понять техническую, образовательную и технологическую основу проекта NeoPixel: от документации ESP-IDF и PlatformIO до материалов по драйверам, дисплеям и фотополимерной печати.</p>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Партнерский и образовательный контекст</p>
+            <h2>Организации и проектная деятельность</h2>
+          </div>
+          <div class="resource-list">
+            <div class="resource-card">
+              <h3><a href="https://mospolytech.ru/" target="_blank" rel="noreferrer">Московский Политех</a></h3>
+              <p>Образовательная организация, в логике которой проектная деятельность рассматривается как практико-ориентированный формат формирования инженерных компетенций.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://pd.mospolytech.ru/" target="_blank" rel="noreferrer">Проектная деятельность</a></h3>
+              <p>Информационная площадка, связанная с проектным обучением, командной работой, постановкой задач, отчетностью и представлением результатов учебных проектов.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Техническая документация</p>
+            <h2>Материалы для разработки</h2>
+          </div>
+          <div class="resource-list">
+            <div class="resource-card">
+              <h3><a href="https://docs.platformio.org/" target="_blank" rel="noreferrer">PlatformIO Documentation</a></h3>
+              <p>Документация по среде сборки, конфигурации проектов, работе с платами, библиотеками и мониторингом последовательного порта.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/" target="_blank" rel="noreferrer">ESP-IDF для ESP32-S3</a></h3>
+              <p>Официальная документация Espressif по фреймворку ESP-IDF, периферии микроконтроллера, FreeRTOS, GPIO, таймерам и сборке проекта.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://www.pololu.com/file/0J450/A4988.pdf" target="_blank" rel="noreferrer">A4988 Stepper Motor Driver</a></h3>
+              <p>Datasheet драйвера A4988, необходимый для понимания сигналов STEP, DIR, EN, микрошагов, ограничений по току и требований к питанию VMOT.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://docs.lvgl.io/" target="_blank" rel="noreferrer">LVGL Documentation</a></h3>
+              <p>Документация по библиотеке графического интерфейса, которая может использоваться для будущей панели управления принтером.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/lcd/spi_lcd.html" target="_blank" rel="noreferrer">ESP-IDF LCD SPI</a></h3>
+              <p>Раздел документации Espressif по SPI LCD, полезный для подключения дисплейного модуля и вывода изображений слоев.</p>
+            </div>
+            <div class="resource-card">
+              <h3><a href="https://reprap.org/wiki/NEMA_17_Stepper_motor" target="_blank" rel="noreferrer">NEMA 17 Stepper Motor</a></h3>
+              <p>Справочный материал по распространенному форм-фактору шаговых двигателей, применяемых в малых станках и 3D-принтерах.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="grid two">
+            <figure class="visual-panel">
+              <iframe src="assets/layer-cycle-animation.svg" title="Медиа-анимация последовательности печати" height="320"></iframe>
+              <figcaption>Анимационный блок показывает упрощенную последовательность фотополимерной печати.</figcaption>
+            </figure>
+            <div>
+              <p class="eyebrow">Для понимания технологии</p>
+              <h2>Что стоит изучить дополнительно</h2>
+              <p class="lead">Для более глубокого понимания проекта полезно изучить принципы SLA/MSLA-печати, свойства фотополимеров, механику отрыва слоя от пленки, расчет высоты слоя, требования к равномерности UV-засветки и методы калибровки платформы.</p>
+              <div class="resource-card">
+                <h3><a href="https://formlabs.com/blog/ultimate-guide-to-stereolithography-sla-3d-printing/" target="_blank" rel="noreferrer">Guide to SLA 3D Printing</a></h3>
+                <p>Обзорная статья о технологии стереолитографии, полезная для понимания физического смысла послойной фотополимеризации и ограничений печатного процесса.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>NeoPixel · ресурсы проекта</p>
+        <div class="footer-links">
+          <a href="index.html">Домой</a>
+          <a href="journal.html">Журнал</a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NeoPixel | Учебный проект фотополимерного 3D-принтера</title>
+    <meta name="description" content="Статический сайт учебного проекта NeoPixel по разработке и доработке малого фотополимерного 3D-принтера.">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="brand" href="index.html"><span class="brand-mark">NP</span><span>NeoPixel</span></a>
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Домой</a></li>
+          <li><a href="about.html">О проекте</a></li>
+          <li><a href="participants.html">Участники</a></li>
+          <li><a href="journal.html">Журнал</a></li>
+          <li><a href="resources.html">Ресурсы</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <p class="eyebrow">Проектная деятельность · малый фотополимерный принтер</p>
+            <h1>NeoPixel</h1>
+            <p class="lead">Учебно-инженерный проект, посвященный проектированию, программной доработке и экспериментальной верификации компактного фотополимерного 3D-принтера с управляемой осью Z, UV-экспозицией и перспективной интеграцией дисплейного модуля.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="about.html">Изучить проект</a>
+              <a class="button ghost" href="journal.html">Открыть журнал</a>
+            </div>
+            <div class="metric-grid" aria-label="Краткие показатели проекта">
+              <div class="metric"><strong>ESP32-S3</strong><span>основа управляющей электроники</span></div>
+              <div class="metric"><strong>A4988</strong><span>драйвер шагового двигателя</span></div>
+              <div class="metric"><strong>Z-axis</strong><span>текущий фокус реализации</span></div>
+              <div class="metric"><strong>SLA/MSLA</strong><span>технологический контекст печати</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Аннотация</p>
+            <h2>О чем этот сайт</h2>
+            <p class="lead">Сайт фиксирует академическое описание проекта NeoPixel, его техническую рамку, текущий прогресс и информационные материалы, необходимые для понимания логики разработки малого фотополимерного 3D-принтера.</p>
+          </div>
+          <div class="grid two">
+            <div class="card">
+              <h3>Инженерная постановка</h3>
+              <p>NeoPixel рассматривается как учебный объект комплексной инженерной деятельности: в нем одновременно присутствуют задачи силовой электроники, микроконтроллерного программирования, механического позиционирования, световой экспозиции, интерфейсного проектирования и последующей экспериментальной настройки технологического процесса.</p>
+              <p>В существующем репозитории наиболее оформленным программным фрагментом является модуль базового управления осью Z. Он задает переход от абстрактной команды перемещения к конкретной генерации STEP-импульсов, работе с направлением движения и контролю концевого выключателя.</p>
+            </div>
+            <figure class="visual-panel">
+              <img src="assets/z-axis-diagram.svg" alt="Диаграмма управления осью Z через ESP32-S3, A4988 и NEMA17">
+              <figcaption>Схематическая визуализация текущей программной логики: контроллер, драйвер A4988, шаговый двигатель и концевой выключатель.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Системный контур</p>
+            <h2>Проект как совокупность подсистем</h2>
+          </div>
+          <div class="grid three">
+            <div class="card">
+              <h3>Управление движением</h3>
+              <p>Ось Z обеспечивает повторяемое позиционирование платформы, а значит напрямую влияет на стабильность слоя, геометрию изделия и воспроизводимость результата. В учебном проекте эта часть выступает базовым уровнем аппаратно-программной надежности.</p>
+            </div>
+            <div class="card">
+              <h3>Экспозиционный модуль</h3>
+              <p>UV-матрица и релейное управление должны сформировать контролируемое световое воздействие на фотополимер. Эта подсистема пока описана концептуально и ожидает последующей реализации в firmware.</p>
+            </div>
+            <div class="card">
+              <h3>Интерфейс и визуализация</h3>
+              <p>Планируемые дисплеи ILI9488 и библиотека LVGL позволяют рассматривать будущий интерфейс не только как панель управления, но и как инструмент технологического мониторинга процесса печати.</p>
+            </div>
+          </div>
+          <figure class="visual-panel" style="margin-top: 24px;">
+            <img src="assets/system-map.svg" alt="Функциональная декомпозиция проекта NeoPixel">
+            <figcaption>Карта подсистем NeoPixel: контроллер, ось Z, UV-модуль, дисплейный контур и пользовательский интерфейс.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="section-inner">
+          <div class="grid two">
+            <div>
+              <p class="eyebrow">Медиа</p>
+              <h2>Демонстрационная модель печати</h2>
+              <p class="lead">Анимационный блок показывает упрощенную последовательность фотополимерной печати. Он нужен как визуальная иллюстрация: платформа поднимается, возвращается к расчетной позиции, после чего выполняется засветка фотополимера.</p>
+              <div class="button-row">
+                <a class="button primary" href="journal.html">Перейти к прогрессу</a>
+                <a class="button" href="resources.html">Полезные материалы</a>
+              </div>
+            </div>
+            <figure class="visual-panel">
+              <iframe src="assets/layer-cycle-animation.svg" title="Анимированная модель последовательности печати" height="320"></iframe>
+              <figcaption>Анимационный блок показывает упрощенную последовательность фотополимерной печати.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>NeoPixel · учебный проект по проектной деятельности</p>
+        <div class="footer-links">
+          <a href="about.html">О проекте</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="assets/app.js"></script>
+  </body>
+</html>
